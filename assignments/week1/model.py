@@ -3,8 +3,9 @@ import numpy as np
 
 class LinearRegression:
     """
-        A linear regression model that uses closed form solution to fit the model.
+    A linear regression model that uses closed form solution to fit the model.
     """
+
     w: np.ndarray
     b: float
 
@@ -51,7 +52,7 @@ class GradientDescentLinearRegression(LinearRegression):
     """
 
     def fit(
-            self, X: np.ndarray, y: np.ndarray, lr: float = 0.01, epochs: int = 1000
+        self, X: np.ndarray, y: np.ndarray, lr: float = 0.01, epochs: int = 1000
     ) -> None:
         """
         Predict the weights and bias for the given input.
@@ -69,7 +70,7 @@ class GradientDescentLinearRegression(LinearRegression):
         X = np.c_[np.ones((n, 1)), X]
         for _ in range(epochs):
             y_hat = np.dot(X, w.T)
-            gradient = (y_hat-y) @ X / n
+            gradient = (y_hat - y) @ X / n
             w = w - lr * gradient
         self.w = w[1:]
         self.b = w[0]
