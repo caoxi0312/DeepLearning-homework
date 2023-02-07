@@ -5,6 +5,9 @@ import torch.nn as nn
 
 
 class MLP(torch.nn.Module):
+    """
+    This class is a Multilayer Perceptron
+    """
     def __init__(
         self,
         input_size: int,
@@ -32,11 +35,11 @@ class MLP(torch.nn.Module):
         self.layers = nn.ModuleList()
         for i in range(hidden_count):
             self.layers += [nn.Linear(input_size, hidden_size)]
-            # self.layers += [self.activation]
+            self.layers += [self.activation]
             input_size = hidden_size
         self.out = nn.Linear(hidden_size, num_classes)
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Forward pass of the network.
 
