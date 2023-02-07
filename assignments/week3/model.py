@@ -8,6 +8,7 @@ class MLP(torch.nn.Module):
     """
     This class is a Multilayer Perceptron
     """
+
     def __init__(
         self,
         input_size: int,
