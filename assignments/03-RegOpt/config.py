@@ -14,7 +14,9 @@ class CONFIG:
     lrs_kwargs = {
         # You can pass arguments to the learning rate scheduler
         # constructor here.
-        "step_size": 100
+        # "step_size": 100,
+        "total_iters": 800,
+        "power": 0.2,
     }
 
     optimizer_factory: Callable[
@@ -25,8 +27,4 @@ class CONFIG:
         weight_decay=CONFIG.initial_weight_decay,
     )
 
-    transforms = Compose(
-        [
-            ToTensor(),
-        ]
-    )
+    transforms = Compose([ToTensor(), Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
