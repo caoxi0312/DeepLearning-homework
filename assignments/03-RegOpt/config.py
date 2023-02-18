@@ -17,8 +17,10 @@ class CONFIG:
         # "step_size": 100,
         # "total_iters": 800,
         # "power": 0.2,
-        "T_max": 1000,
-        "eta_min": 1e-3,
+        # "T_max": 1000,
+        "eta_min": 1e-6,
+        "T_0": 1000,
+        "T_mult": 7,
     }
 
     optimizer_factory: Callable[
