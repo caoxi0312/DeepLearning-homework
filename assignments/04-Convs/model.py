@@ -7,6 +7,7 @@ class Model(torch.nn.Module):
     """
     This is a CNN model
     """
+
     def __init__(self, num_channels: int, num_classes: int) -> None:
         super().__init__()
         self.conv1 = nn.Conv2d(in_channels=num_channels, out_channels=24, kernel_size=5)
