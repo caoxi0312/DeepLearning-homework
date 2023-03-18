@@ -20,7 +20,7 @@ class Model(torch.nn.Module):
         self.bn3 = nn.BatchNorm2d(20)
         self.pool = nn.MaxPool2d(3, stride=2)
         self.flat = nn.Flatten()
-        # self.linear1 = nn.Linear(in_features=6912, out_features=128)
+        self.linear1 = nn.Linear(in_features=216, out_features=48)
         self.linear2 = nn.Linear(in_features=48, out_features=num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -35,12 +35,13 @@ class Model(torch.nn.Module):
         y = self.pool(y)
         y = F.relu(y)
         # print(y.size())
-        y = self.conv3(y)
-        y = F.relu(y)
-        y = self.bn3(y)
+        # y = self.conv3(y)
+        # y = F.relu(y)
+        # y = self.bn3(y)
         y = self.flat(y)
         # print(y.size())
-        # y = self.linear1(y)
-        # y = self.linear2(y)
+        y = self.linear1(y)
+        y = F.relu(y)
+        y = self.linear2(y)
 
         return y
