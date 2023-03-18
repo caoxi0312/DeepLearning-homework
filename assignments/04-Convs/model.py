@@ -22,9 +22,9 @@ class Model(torch.nn.Module):
         self.bn1 = nn.BatchNorm2d(32)
         self.bn2 = nn.BatchNorm2d(24)
         self.bn3 = nn.BatchNorm2d(20)
-        self.pool = nn.MaxPool2d(3, stride=2, padding=1)
+        self.pool = nn.MaxPool2d(3, stride=1, padding=1)
         self.flat = nn.Flatten()
-        self.linear1 = nn.Linear(in_features=2048, out_features=128)
+        self.linear1 = nn.Linear(in_features=8192, out_features=128)
         self.linear2 = nn.Linear(in_features=128, out_features=num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
