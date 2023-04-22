@@ -9,6 +9,7 @@ class Agent:
     """
     A custom agent that uses a neural network to approximate the Q-function.
     """
+
     def __init__(
         self,
         action_space: gym.spaces.Discrete,
